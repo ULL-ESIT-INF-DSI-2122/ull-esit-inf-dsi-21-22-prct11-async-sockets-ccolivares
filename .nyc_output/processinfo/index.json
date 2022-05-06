@@ -1,0 +1,1 @@
+{"processes":{"5b5396a2-77af-49f7-9e12-813cdb0d70d9":{"parent":null,"children":["5e5fc275-b572-4c32-b387-47da29d7af17"]},"5e5fc275-b572-4c32-b387-47da29d7af17":{"parent":"5b5396a2-77af-49f7-9e12-813cdb0d70d9","children":[]}},"files":{"/home/usuario/ull-esit-inf-dsi-21-22-prct11-async-sockets-ccolivares/src/index.ts":["5e5fc275-b572-4c32-b387-47da29d7af17"]},"externalIds":{}}
