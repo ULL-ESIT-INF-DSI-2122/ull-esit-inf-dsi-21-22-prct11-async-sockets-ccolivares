@@ -2,7 +2,7 @@
  * Formulario base de una petición
  */
 export type RequestType = {
-  type: 'add' | 'modify' | 'remove' | 'read' | 'list';
+  type: 'add' | 'modify' | 'delete' | 'read' | 'list';
   user: string;
   title?: string;
   body?: string;

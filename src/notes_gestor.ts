@@ -1,5 +1,5 @@
-import chalk = require('chalk')
-import * as fs from 'fs'
+import * as fs from 'fs';
+import * as chalk from 'chalk';
 
 /**
  * Clase para gestion general de notas. 
@@ -28,10 +28,10 @@ export class notesGestor {
 
       fs.writeFileSync(path,JSON.stringify(note));
     
-      return chalk.default.bgGreen("Se ha creado la nota correctamente");
+      return chalk.bgGreen("Se ha creado la nota correctamente");
 
     } else { 
-      return chalk.default.bgRed.white("La nota que desea añadir ya existe");
+      return chalk.bgRed.white("La nota que desea añadir ya existe");
     }
   }
 
@@ -53,10 +53,10 @@ export class notesGestor {
         fs.rmdirSync(dir_path);
       }
 
-      return chalk.default.bgGreen("La nota ha sido eliminada correctamente");
+      return chalk.bgGreen("La nota ha sido eliminada correctamente");
 
     } else {
-      return chalk.default.bgRed.white("La nota que desea borrar no existe");
+      return chalk.bgRed.white("La nota que desea borrar no existe");
     }
   }
 
@@ -75,10 +75,10 @@ export class notesGestor {
 
     if (fs.existsSync(path)) { 
       fs.writeFileSync(path,JSON.stringify(note));
-      return chalk.default.bgGreen("Se ha creado la nota correctamente");
+      return chalk.bgGreen("Se ha creado la nota correctamente");
 
     } else { 
-      return chalk.default.bgRed.white("La nota que desea modificar no existe");
+      return chalk.bgRed.white("La nota que desea modificar no existe");
     }
   }
 
@@ -98,19 +98,19 @@ export class notesGestor {
 
     switch(color) {
       case "green":
-        result += chalk.default.green(body)
+        result += chalk.green(body)
         break;
 
       case "red":
-        result += chalk.default.red(body)
+        result += chalk.red(body)
         break;
 
       case "blue":
-        result += chalk.default.blue(body)
+        result += chalk.blue(body)
         break;
 
       case "yellow":
-        result += chalk.default.yellow(body)
+        result += chalk.yellow(body)
         break;
       }
 
@@ -135,16 +135,16 @@ export class notesGestor {
 
       switch(color) {
         case "blue":
-          result = result + chalk.default.blue(element) + '\n';
+          result = result + chalk.blue(element) + '\n';
           break
         case "green":
-          result = result + chalk.default.green(element) + '\n';
+          result = result + chalk.green(element) + '\n';
           break
         case "yellow":
-          result = result + chalk.default.yellow(element) + '\n';
+          result = result + chalk.yellow(element) + '\n';
           break
         case "red":
-          result = result + chalk.default.red(element) + '\n';
+          result = result + chalk.red(element) + '\n';
           break
       }
     });

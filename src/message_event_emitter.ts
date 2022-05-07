@@ -1,4 +1,4 @@
-import {EventEmitter} from 'events';
+import { EventEmitter } from 'events';
 
 export class MessageEventEmitter extends EventEmitter {
   constructor(connection: EventEmitter) {
