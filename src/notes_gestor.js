@@ -19,11 +19,13 @@ var notesGestor = /** @class */ (function () {
      * @returns mensaje con el resultado de la acción
      */
     notesGestor.prototype.addNote = function (user, title, body, color) {
-        var path = "database/" + user + "/" + title + ".json";
-        var dir_path = "database/" + user;
+        var path = "../database/" + user + "/" + title + ".json";
+        var dir_path = "../database/" + user;
         var note = { "title": title, "body": body, "color": color };
         if (!fs.existsSync(path)) {
+            console.log("La ruta ".concat(path, " no existe"));
             if (!fs.existsSync(dir_path)) {
+                console.log("El directorio ".concat(dir_path, " no existe"));
                 fs.mkdirSync("database/" + user);
             }
             fs.writeFileSync(path, JSON.stringify(note));
@@ -40,8 +42,8 @@ var notesGestor = /** @class */ (function () {
      * @returns mensaje con el resultado de la acción
      */
     notesGestor.prototype.deleteNote = function (user, title) {
-        var path = "database/" + user + "/" + title + ".json";
-        var dir_path = "database/" + user;
+        var path = "../database/" + user + "/" + title + ".json";
+        var dir_path = "../database/" + user;
         if (fs.existsSync(path)) {
             fs.rmSync(path);
             var all_notes = fs.readdirSync(dir_path);
@@ -63,7 +65,7 @@ var notesGestor = /** @class */ (function () {
      * @returns contenido de la notas
      */
     notesGestor.prototype.modifyNote = function (user, title, body, color) {
-        var path = "database/" + user + "/" + title + ".json";
+        var path = "../database/" + user + "/" + title + ".json";
         // let dir_path: string = "database/" + user;
         var note = { "title": title, "body": body, "color": color };
         if (fs.existsSync(path)) {
@@ -81,7 +83,7 @@ var notesGestor = /** @class */ (function () {
      * @returns mensaje con el resultado de la acción
      */
     notesGestor.prototype.readNote = function (user, title) {
-        var path = "database/" + user + "/" + title + ".json";
+        var path = "../database/" + user + "/" + title + ".json";
         var note = fs.readFileSync(path, 'utf-8');
         var aux_note = JSON.parse(note);
         var body = aux_note['body'];
@@ -109,7 +111,7 @@ var notesGestor = /** @class */ (function () {
      * @returns lista de notas del usuario
      */
     notesGestor.prototype.listNotes = function (user) {
-        var dir_path = "database/" + user;
+        var dir_path = "../database/" + user;
         var all_notes = fs.readdirSync(dir_path);
         var result = '';
         all_notes.forEach(function (element) {

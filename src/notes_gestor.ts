@@ -17,12 +17,14 @@ export class notesGestor {
    * @returns mensaje con el resultado de la acción
    */
   addNote(user: string, title: string, body: string, color: string): string {
-    let path: string = "database/" + user + "/" + title + ".json";
-    let dir_path: string = "database/" + user;
+    let path: string = "../database/" + user + "/" + title + ".json";
+    let dir_path: string = "../database/" + user;
     let note = {"title": title, "body": body, "color": color};
 
     if (!fs.existsSync(path)) { 
-      if (!fs.existsSync(dir_path)) { 
+       console.log(`La ruta ${path} no existe`);
+       if (!fs.existsSync(dir_path)) { 
+        console.log(`El directorio ${dir_path} no existe`);
         fs.mkdirSync("database/" + user);
       }
 
@@ -42,8 +44,8 @@ export class notesGestor {
    * @returns mensaje con el resultado de la acción
    */
   deleteNote(user: string, title: string): string {
-    let path: string = "database/" + user + "/" + title + ".json";
-    let dir_path: string = "database/" + user;
+    let path: string = "../database/" + user + "/" + title + ".json";
+    let dir_path: string = "../database/" + user;
 
     if (fs.existsSync(path)) {
       fs.rmSync(path);
@@ -69,7 +71,7 @@ export class notesGestor {
    * @returns contenido de la notas
    */
   modifyNote(user: string, title: string, body: string, color: string): string{
-    let path: string = "database/" + user + "/" + title + ".json";
+    let path: string = "../database/" + user + "/" + title + ".json";
     // let dir_path: string = "database/" + user;
     let note = {"title": title, "body": body, "color": color};
 
@@ -89,7 +91,7 @@ export class notesGestor {
    * @returns mensaje con el resultado de la acción
    */
   readNote(user: string, title: string): string {
-    let path: string = "database/" + user + "/" + title + ".json";
+    let path: string = "../database/" + user + "/" + title + ".json";
     let note: string = fs.readFileSync(path,'utf-8');
     let aux_note = JSON.parse(note);
     let body: string = aux_note['body'];
@@ -123,7 +125,7 @@ export class notesGestor {
    * @returns lista de notas del usuario
    */
   listNotes(user: string): string{
-    let dir_path: string = "database/" + user;
+    let dir_path: string = "../database/" + user;
     let all_notes = fs.readdirSync(dir_path);
     let result: string = '';
 
