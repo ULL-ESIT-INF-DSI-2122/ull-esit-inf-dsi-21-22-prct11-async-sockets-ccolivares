@@ -4,6 +4,9 @@ import * as chalk from 'chalk';
 import * as yargs from 'yargs';
 import { MessageEventEmitter } from './message_event_emitter';
 
+/**
+ * Cliente
+ */
 const socket = net.connect({port: 60300});
 const client = new MessageEventEmitter(socket);
 
@@ -55,8 +58,7 @@ yargs.command({
 });
 
 /**
-* Comando para modificar una nota por terminal.
-* Se pasan por parametro en terminal, el usuario, el titulo, el cuerpo y color.
+* Comando: modificar una nota
 */
 yargs.command({
   command: 'modify',
@@ -98,8 +100,7 @@ yargs.command({
 });
 
 /**
-* Comando para eliminar una nota de un usuario por terminal
-* se pasan por parametro en terminal el usuario y el titulo
+* Comando: eliminar una nota
 */
 yargs.command({
   command: 'delete',
@@ -128,8 +129,7 @@ yargs.command({
 });
 
 /**
-* Comando para leer una nota de un usuario por terminal.
-* Se pasan por parametro en terminal, el usuario y el titulo.
+* Comando: leer una nota especifica de un usuario
 */
 yargs.command({
   command: 'read',
@@ -158,8 +158,7 @@ yargs.command({
 });
 
 /**
-* Comando para listar las notas de un usuario por terminal.
-* Se pasan por parametro en terminal, el usuario.
+* Comando: listar todas las notas de un usuario
 */
 yargs.command({
   command: 'list',

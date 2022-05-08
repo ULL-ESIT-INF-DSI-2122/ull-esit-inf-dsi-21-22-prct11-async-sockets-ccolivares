@@ -22,10 +22,8 @@ export class notesGestor {
     let note = {"title": title, "body": body, "color": color};
 
     if (!fs.existsSync(path)) { 
-       console.log(`La ruta ${path} no existe`);
-       if (!fs.existsSync(dir_path)) { 
-        console.log(`El directorio ${dir_path} no existe`);
-        fs.mkdirSync("database/" + user);
+      if (!fs.existsSync(dir_path)) { 
+        fs.mkdirSync("../database/" + user);
       }
 
       fs.writeFileSync(path,JSON.stringify(note));
