@@ -1,3 +1,4 @@
 node_modules
 dist
 .nyc_output
+/home/usuario/ull-esit-inf-dsi-21-22-prct11-async-sockets-ccolivares/.nyc_output
